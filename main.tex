@@ -220,6 +220,29 @@ Note that the above algorithm is simplified in several respects:
 In the rest of this report we could see how to make it more efficient (though we will, in fact, not).
 We present a part of the search procedure used in actual CafeSAT code in Appendix~\ref{app:verifiedFunction}.
 
+\section{Implementation}
+
+We have implemented our approach in ocaml. Our system is available in the following repository:
+\begin{center}
+  \url{https://github.com/epfl-lara/jahob}
+\end{center}
+and build instructions are in file \verb|README.md| in the top-level directory.
+
+\section{Experimental Evaluation}
+
+We have evaluated our solver on benchmarks taken from standard benchmark suites~\cite{DBLP:conf/fm/HojjatKGIKR12,
+  Sut17,
+  BarFT-SMTLIB,
+  10.1007/978-3-030-45237-7_21}
+  
+We have selected only those benchmarks that portray our
+solver in good light. To make our results look more
+convincing, we have added some benchmarks that our solver
+cannot solve (and also no other solver can solve, because
+they encode open conjectures in number theory).\footnote{You should adopt a more convincing
+  approach to evaluation if possible. For a short project, make it clear that you understand
+  where your limitations are, rather than pretending they do not exist. Also, do not use footnotes.}
+
 \section{Related Work}
 
 In this section we argue that we are very well aware of the previous work in the area.
@@ -234,7 +257,7 @@ types makes verification easy. In reality, verification is never easy; it is mer
 to have high confidence that software is correct.
 
 Types that refine type systems of languages such as Haskell and ocaml with predicates demonstrate
-an appealing combination between automation and expressive power \cite{vazou15bounded}. They appear
+an appealing combination between automation and expressive power \cite{10.1145/2858949.2784745}. They appear
 to have been used to prove properties somewhat simpler than those used in Stainless case studies
 \cite{HamzaETAL19SystemFR}, but have advantage in inferring properties that are not inductive
 yet fit the provided invariant templates.
